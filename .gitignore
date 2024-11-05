@@ -1,5 +1,8 @@
-# Ignore all files
+# Ignore everything by default
 *
 
-# But not any file named 'report.html'
+# Allow all directories to be tracked
+!*/
+
+# Only include report.html files
 !**/report.html
