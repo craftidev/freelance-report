@@ -1,0 +1,745 @@
+<head>
+    <style type="text/css" media="screen">
+        body,
+        html {
+            font-family: var(
+                --markdown-font-family,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe WPC",
+                "Segoe UI",
+                system-ui,
+                "Ubuntu",
+                "Droid Sans",
+                sans-serif
+            );
+            font-size: var(--markdown-font-size, 14px);
+            padding: 0 26px;
+            line-height: var(--markdown-line-height, 22px);
+            word-wrap: break-word;
+        }
+        body {
+            padding-top: 1em;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        ol,
+        p,
+        pre,
+        ul {
+            margin-top: 0;
+        }
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 400;
+            margin-bottom: 0.2em;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        a:focus,
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 1px solid -webkit-focus-ring-color;
+            outline-offset: -1px;
+        }
+        p {
+            margin-bottom: 0.7em;
+        }
+        ol,
+        ul {
+            margin-bottom: 0.7em;
+        }
+        hr {
+            border: 0;
+            height: 2px;
+            border-bottom: 2px solid;
+        }
+        h1 {
+            padding-bottom: 0.3em;
+            line-height: 1.2;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            font-weight: 400;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            border-bottom: 1px solid;
+        }
+        td,
+        th {
+            padding: 5px 10px;
+        }
+        table > tbody > tr + tr > td {
+            border-top: 1px solid;
+        }
+        blockquote {
+            margin: 0 7px 0 5px;
+            padding: 0 16px 0 10px;
+            border-left-width: 5px;
+            border-left-style: solid;
+        }
+        code {
+            font-family: var(
+                --vscode-editor-font-family,
+                "SF Mono",
+                Monaco,
+                Menlo,
+                Consolas,
+                "Ubuntu Mono",
+                "Liberation Mono",
+                "DejaVu Sans Mono",
+                "Courier New",
+                monospace
+            );
+            font-size: 1em;
+            line-height: 1.357em;
+        }
+        body.wordWrap pre {
+            white-space: pre-wrap;
+        }
+        pre.hljs code > div,
+        pre:not(.hljs) {
+            padding: 16px;
+            border-radius: 3px;
+            overflow: auto;
+        }
+        pre code {
+            color: var(--vscode-editor-foreground);
+            tab-size: 4;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="rapport">Rapport</h1>
+    <h2 id="changements-taxonomie---recap">Changements taxonomie - recap</h2>
+    <h3 id="avant">Avant</h3>
+    <ul>
+        <li>
+            Vacances et loisirs
+            <ul>
+                <li>Ete</li>
+                <li>Hiver</li>
+            </ul>
+        </li>
+        <li>
+            Maison
+            <ul>
+                <li>Sante</li>
+            </ul>
+        </li>
+        <li>Conso</li>
+        <li>
+            Parent
+            <ul>
+                <li>Ecole</li>
+            </ul>
+        </li>
+    </ul>
+    <h3 id="changements---demande-du-client">
+        Changements - demande du client
+    </h3>
+    <ul>
+        <li>
+            Vacances et loisirs -&gt; renome en <code>Sport et santé</code>
+            <ul>
+                <li>Sante -&gt; deplace ici depuis <code>Maison</code></li>
+                <li>
+                    Ete -&gt; depublie (articles renvoye dans
+                    <code>Conso:Vacances</code>)
+                </li>
+                <li>
+                    Hiver -&gt; depublie (articles renvoye dans
+                    <code>Conso:Vacances</code>)
+                </li>
+            </ul>
+        </li>
+        <li>
+            Maison
+            <ul>
+                <li>
+                    Sante -&gt; deplace ailleurs (<code
+                        >Sport et santé:Sante</code
+                    >)
+                </li>
+            </ul>
+        </li>
+        <li>
+            Conso
+            <ul>
+                <li>Vacances -&gt; creation de sous rubrique</li>
+                <li>Ecole -&gt; deplace ici depuis <code>Parent</code></li>
+            </ul>
+        </li>
+        <li>Parent -&gt; rurbique entiere et sous rubrique a depublier</li>
+        <li>Comprendre les enjeux -&gt; creation de rubrique</li>
+    </ul>
+    <h3 id="apres---resultat-voulu">Apres - resultat voulu</h3>
+    <ul>
+        <li>
+            Sport et sante
+            <ul>
+                <li>Sante</li>
+            </ul>
+        </li>
+        <li>
+            Conso
+            <ul>
+                <li>Vacances</li>
+                <li>Ecole</li>
+            </ul>
+        </li>
+        <li>Comprendre les enjeux</li>
+    </ul>
+    <h2 id="changement-parametre-darticles">
+        Changement parametre d&#39;articles
+    </h2>
+    <h3 id="moment-de-vie">Moment de vie</h3>
+    <p>
+        J&#39;ai remarque qu&#39;a certain moment on se retrouvait avec des
+        moment de vie principal strictement egal aux moments de vie secondaire.
+        Comme j&#39;ai remarque leur presence avant mes changements, je suppose
+        que c&#39;est acceptable/necessaire dans l&#39;organisation actuelle et
+        n&#39;ai rien touche pour y remedier.
+    </p>
+    <h4 id="supression-moment-de-vie-secondaire-sante">
+        Supression moment de vie secondaire Sante
+    </h4>
+    <p>
+        Article retires de la sous rubrique Sante (et non pas deplaces de
+        l&#39;ancienne sous rubrique Sante vers la nouvelle dans
+        <code>Sport et santé:Sante</code> comme les autres.) : -
+        <a
+            href="https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-comment-garder-logement-frais"
+            >confort-ete/canicule-comment-garder-logement-frais</a
+        >
+        -
+        <a
+            href="https://agirpourlatransition.ademe.fr/particuliers/maison/confort-ete/canicule-19-solutions-apporter-fraicheur-ville"
+            >confort-ete/canicule-19-solutions-apporter-fraicheur-ville</a
+        >
+        -
+        <a
+            href="https://agirpourlatransition.ademe.fr/particuliers/maison/travaux/quand-faire-lentretien-chaudiere"
+            >travaux/quand-faire-lentretien-chaudiere</a
+        >
+    </p>
+    <h4 id="articles-ete-et-hivers-recupere-par-consovacances">
+        Articles Ete et Hivers recupere par Conso:Vacances
+    </h4>
+    <h5 id="mdv-principal">MdV Principal</h5>
+    <p>Ete (slug auto) :</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/vers-tourisme-plus-durable-france"
+                >particuliers/conso/vacances/vers-tourisme-plus-durable-france</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/conso/vacances/pense-bete-vacancier-exemplaire"
+                >conso/vacances/pense-bete-vacancier-exemplaire</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/trouver-hebergement-ecologique-vacances"
+                >particuliers/conso/vacances/trouver-hebergement-ecologique-vacances</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/conso/vacances/voyager-leger"
+                >conso/vacances/voyager-leger</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/transports-envies-dailleurs"
+                >particuliers/conso/vacances/transports-envies-dailleurs</a
+            >
+        </li>
+    </ul>
+    <p>Ete (slug manuel) :</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/vacances-durables-idees-pour-tous-les-gouts"
+                >particuliers/conso/vacances/vacances-durables-idees-pour-tous-les-gouts</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/des-vacances-plus-durables"
+                >particuliers/conso/vacances/des-vacances-plus-durables</a
+            >
+        </li>
+    </ul>
+    <p>Hiver (slug auto) :</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/sports-dhiver-comment-moins-polluer"
+                >sports-dhiver-comment-moins-polluer</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/vacances-a-montagne-plus-ecologiques-plus-economiques"
+                >vacances-a-montagne-plus-ecologiques-plus-economiques</a
+            >
+        </li>
+    </ul>
+    <p>Hiver (slug manuel) :</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/guide-decouvrir-10-sorties-montagne-depart-paris-sans-voiture"
+                >guide-decouvrir-10-sorties-montagne-depart-paris-sans-voiture</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/pratiquants-montagne-ecoguide-prendre-soin-environnement"
+                >pratiquants-montagne-ecoguide-prendre-soin-environnement</a
+            >
+        </li>
+    </ul>
+    <h5 id="mdv-secondaire">MdV Secondaire</h5>
+    <p>Ete :</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/vacances-loisirs/ete/vacances-durables-idees-pour-tous-les-gouts"
+                >particuliers/vacances-loisirs/ete/vacances-durables-idees-pour-tous-les-gouts</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/conso/conso-responsable/bons-plans-moins-consommer-carburant"
+                >conso/conso-responsable/bons-plans-moins-consommer-carburant</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/bureau/deplacements/calculer-emissions-carbone-trajets"
+                >particuliers/bureau/deplacements/calculer-emissions-carbone-trajets</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/alimentation/astuces-bien-manger-ete-gaspiller"
+                >particuliers/conso/alimentation/astuces-bien-manger-ete-gaspiller</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/bureau/deplacements/modifier-trafic-routier-necessite-ameliorer-qualite-lair"
+                >bureau/deplacements/modifier-trafic-routier-necessite-ameliorer-qualite-lair</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/maison/economies-denergie-deau/secheresses-comment-economiser-leau"
+                >particuliers/maison/economies-denergie-deau/secheresses-comment-economiser-leau</a
+            >
+        </li>
+    </ul>
+    <p>Hivers :</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/bureau/deplacements/modifier-trafic-routier-necessite-ameliorer-qualite-lair"
+                >bureau/deplacements/modifier-trafic-routier-necessite-ameliorer-qualite-lair</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/bureau/deplacements/calculer-emissions-carbone-trajets"
+                >particuliers/bureau/deplacements/calculer-emissions-carbone-trajets</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/vacances-loisirs/ete/vers-tourisme-plus-durable-france"
+                >particuliers/vacances-loisirs/ete/vers-tourisme-plus-durable-france</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/conso/conso-responsable/bons-plans-moins-consommer-carburant"
+                >conso/conso-responsable/bons-plans-moins-consommer-carburant</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/vacances-loisirs/ete/des-vacances-plus-durables"
+                >particuliers/vacances-loisirs/ete/des-vacances-plus-durables</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/vacances-loisirs/ete/pense-bete-vacancier-exemplaire"
+                >vacances-loisirs/ete/pense-bete-vacancier-exemplaire</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/vacances-loisirs/ete/trouver-hebergement-ecologique-vacances"
+                >particuliers/vacances-loisirs/ete/trouver-hebergement-ecologique-vacances</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/vacances-loisirs/ete/voyager-leger"
+                >vacances-loisirs/ete/voyager-leger</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/vacances-loisirs/ete/transports-envies-dailleurs"
+                >particuliers/vacances-loisirs/ete/transports-envies-dailleurs</a
+            >
+        </li>
+    </ul>
+    <h3 id="renomer-vacances-loisirs-en-sport-sante">
+        Renomer vacances-loisirs en sport-sante
+    </h3>
+    <p>
+        Meme les slug automatique n&#39;ont pas ete automatiquement mit a jour
+        apres le renomage. Meme s&#39;ils apparaissent dans les bonnes listes,
+        les liens contiennent toujours l&#39;ancien slug. J&#39;ai donc passe
+        tous les articles concerne en slut manuel et remplace
+        <code>vacances-loisirs</code> en <code>sport-sante</code>.
+    </p>
+    <p>Toutes les pages concernees :</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sport/a-vos-marques-prets-marchez"
+                >particuliers/sport-sante/sport/a-vos-marques-prets-marchez</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sport/offrir-deuxieme-vie-articles-sport"
+                >particuliers/sport-sante/sport/offrir-deuxieme-vie-articles-sport</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sport/10-actions-sport-plus-vert"
+                >particuliers/sport-sante/sport/10-actions-sport-plus-vert</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sport/eco-supporterisme-monde-football-sengage-lecologie"
+                >particuliers/sport-sante/sport/eco-supporterisme-monde-football-sengage-lecologie</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sport/monde-sport-sengage-planete"
+                >particuliers/sport-sante/sport/monde-sport-sengage-planete</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sport/sportifs-herbe-accomplis-marche-loccasion-tend-mains"
+                >particuliers/sport-sante/sport/sportifs-herbe-accomplis-marche-loccasion-tend-mains</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/sport-sante/sport/peut-faire-sport-lors-dun-pic-pollution"
+                >sport-sante/sport/peut-faire-sport-lors-dun-pic-pollution</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sport/proteger-planete-faisant-sport-idee-prend-forme"
+                >particuliers/sport-sante/sport/proteger-planete-faisant-sport-idee-prend-forme</a
+            >
+        </li>
+    </ul>
+    <h3 id="parentecole-deplace-vers-consoecole">
+        Parent:Ecole deplace vers Conso:Ecole
+    </h3>
+    <p>
+        Malgre les slugs automatiques des 4 pages concernees, les slugs ne sont
+        pas mit a jour.
+    </p>
+    <p>
+        J&#39;ai utilise les slugs manuel pour avoir des url qui reflete la
+        nouvelle taxonomie. Au lieu de <code>/parents/ecole</code> je force le
+        <code>/conso/ecole</code>.
+    </p>
+    <p>Pages concernees :</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/conso/ecole/pret-lecole"
+                >conso/ecole/pret-lecole</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/ecole/tous-a-lecole-voiture"
+                >particuliers/conso/ecole/tous-a-lecole-voiture</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/ecole/alimentation-enfants-a-lecole"
+                >particuliers/conso/ecole/alimentation-enfants-a-lecole</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/ecole/trois-astuces-rentree-ecolo"
+                >particuliers/conso/ecole/trois-astuces-rentree-ecolo</a
+            >
+        </li>
+    </ul>
+    <h3 id="deplacement-mdv-maisonsante-vers-sport-et-santesante">
+        Deplacement MdV Maison:Sante vers Sport et sante:Sante
+    </h3>
+    <p>
+        Utilisation du slug manuel pour avoir des urls consistante. Toutes les
+        pages concernees :
+    </p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sante/faire-secher-linge-maison-en-hiver-bonne-ou-mauvaise-idee"
+                >particuliers/sport-sante/sante/faire-secher-linge-maison-en-hiver-bonne-ou-mauvaise-idee</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/sport-sante/sante/que-faire-lors-pic-pollution"
+                >sport-sante/sante/que-faire-lors-pic-pollution</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/sport-sante/sante/micro-capteurs-savoir-si-air-pollue"
+                >sport-sante/sante/micro-capteurs-savoir-si-air-pollue</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/sport-sante/sante/comment-proteger-bebe-lors-dun-pic-pollution"
+                >sport-sante/sante/comment-proteger-bebe-lors-dun-pic-pollution</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/sport-sante/sante/polluants-chambre-enfants"
+                >sport-sante/sante/polluants-chambre-enfants</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/sport-sante/sante/pourquoi-conseille-daerer-logement-tous-jours"
+                >sport-sante/sante/pourquoi-conseille-daerer-logement-tous-jours</a
+            >
+        </li>
+    </ul>
+    <h3 id="retrait-du-mdv-secondaire-parentado-de-tous-les-articles">
+        Retrait du MdV secondaire <code>Parent:Ado</code> de tous les articles
+    </h3>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/maison/sante/pourquoi-conseille-daerer-logement-tous-jours"
+                >maison/sante/pourquoi-conseille-daerer-logement-tous-jours</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/conso/conso-responsable/garder-smartphone-plus-longtemps-possible"
+                >conso/conso-responsable/garder-smartphone-plus-longtemps-possible</a
+            >
+        </li>
+    </ul>
+    <h3 id="modif-individuelles">Modif individuelles</h3>
+    <h4 id="parentenfant-vers-consovacances">
+        Parent:Enfant vers Conso:Vacances
+    </h4>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/conso/vacances/faire-activites-enfants-a-maison"
+                >faire-activites-enfants-a-maison</a
+            >
+            (slug auto)
+        </li>
+    </ul>
+    <p>
+        Il etait demande en plus de <code>changer la photo</code> je n&#39;ai
+        pas la moindre idee de quelle photo je devais mettre. Je n&#39;ai rien
+        fais.
+    </p>
+    <h4 id="parentenfant-vers-sport-et-santesante">
+        Parent:Enfant vers Sport et sante:Sante
+    </h4>
+    <p>RAS (slug auto)</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sante/cinq-gestes-ecolos-preserver-sante-enfants"
+                >cinq-gestes-ecolos-preserver-sante-enfants</a
+            >
+        </li>
+    </ul>
+    <h4 id="parentbebe-vers-sport-et-santesante">
+        Parent:Bebe vers Sport et sante:Sante
+    </h4>
+    <p>RAS (slug auto)</p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/sport-sante/sante/comment-limiter-lexposition-bebe-a-pollution"
+                >comment-limiter-lexposition-bebe-a-pollution</a
+            >
+        </li>
+    </ul>
+    <h3 id="depublication-darticle">Depublication d&#39;article</h3>
+    <p>
+        J&#39;espere que j&#39;ai bien compris la phrase
+        <code>Supprimer de cette nouvelle sous-rubrique l’article...</code> dans
+        le sens supprimer l&#39;article entierment. De toute facon ce n&#39;est
+        que depublier et non supprime. Si j&#39;ai mal compris, il suffit de le
+        repasser en publie.
+    </p>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/bureau/deplacements/modifier-trafic-routier-necessite-ameliorer-qualite-lair"
+                >article depublier - Modifier le trafic routier : une nécessité
+                pour améliorer la qualité de l’air</a
+            >
+        </li>
+    </ul>
+    <h3 id="depublication-hiversete">Depublication Hivers/Ete</h3>
+    <p>
+        Ce n&#39;etait pas demande, mais puisque tout est deplace vers Vacances
+        et qu&#39;aucun article n&#39;est lie a ces deux sous-rubrique (MdV
+        principal ou secondaire), je me suis permis de les depublier
+    </p>
+    <h3 id="creation-de-comprendre-les-enjeux">
+        Creation de Comprendre les enjeux
+    </h3>
+    <p>RAS</p>
+    <h3 id="⚠️-depublication-de-parents-⚠️">⚠️ Depublication de Parents ⚠️</h3>
+    <p>
+        Il est impossible de depublier Parents pour le moment. Des conflicts
+        sont a resoudre au prealable.
+    </p>
+    <h4
+        id="le-plus-important-les-articles-avec-un-mdv-principal-parent-sans-mdv-secondaire"
+    >
+        Le plus important, les articles avec un MdV principal
+        <code>Parent</code> sans MdV secondaire
+    </h4>
+    <h5 id="ado">Ado</h5>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/parents/ado/parler-ecologie-ados-comment-sy-prendre"
+                >particuliers/parents/ado/parler-ecologie-ados-comment-sy-prendre</a
+            >
+        </li>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/particuliers/parents/ado/orientation-scolaire-faire-decouvrir-metiers-transition-ecologique"
+                >particuliers/parents/ado/orientation-scolaire-faire-decouvrir-metiers-transition-ecologique</a
+            >
+        </li>
+    </ul>
+    <p>Le client dit :</p>
+    <p>
+        <code
+            >Supprimer les articles de la sous-rubrique ado. Certains sont de
+            toute façon rattachés à d’autres sous-rubrique</code
+        >
+    </p>
+    <p>Je pense que ces deux articles sont passes sous leur radar.</p>
+    <h4
+        id="articles-avec-mdv-principal-parent-mais-avec-possibilite-de-passer-le-secondaire-en-primaire"
+    >
+        Articles avec MdV principal <code>Parent</code> mais avec possibilite de
+        passer le secondaire en primaire
+    </h4>
+    <h5 id="bebe">Bebe</h5>
+    <ul>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/parents/bebe/comment-trouver-meilleures-couches"
+                >parents/bebe/comment-trouver-meilleures-couches</a
+            >
+        </li>
+    </ul>
+    <p>
+        Ici il y a possibilite de passer <code>Conso:Responsable</code> en MdV
+        principal si ca convient.
+    </p>
+    <p>J&#39;attends des retours si vous voulez que je finalise la mission.</p>
+    <h2 id="notes">Notes</h2>
+    <h3 id="liens-casses">Liens casses</h3>
+    <p>
+        Si des liens etaient utilises precedement ailleurs en interne ou externe
+        (menant au page concerne par cette edition de la Taxonomie), sans
+        redirection : tout sera casse.
+    </p>
+    <h3 id="bug">Bug</h3>
+    <p>
+        L&#39;ancien nom d&#39;un moment de vie traine a des endroits ou il ne
+        devrait pas du tout dans le BO.
+    </p>
+    <p>Etapes pour reproduire le bug pour l&#39;equipe technique :</p>
+    <ol>
+        <li>
+            <a
+                href="https://agirpourlatransition.ademe.fr/admin/content/articles"
+                >BO - aller sur la liste des articles</a
+            >
+        </li>
+        <li>Filtrer par moment de vie principal</li>
+        <li>
+            Cliquer sur <code>- Sport</code> sous <code>Sport et sante</code>
+        </li>
+        <li>Cliquer sur Appliquer, attendre chargement de la page</li>
+        <li>Derouler le menu <code>Moment de vie principal</code></li>
+        <li>
+            observer que <code>Sport et sante</code> est devenu
+            <code>Vacances et loisirs</code> (-&gt; comportement indesirable)
+            (Contexte: Vacances et loisirs etait l&#39;ancien nom, le moment de
+            vie a ete renome en Sport et sante et ne devrait jamais apparaitre
+            autrement.)
+        </li>
+    </ol>
+    <h1 id="temps-de-travail">Temps de travail</h1>
+    <p>3 h</p>
+</body>
